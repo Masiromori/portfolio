@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game Design Portfolio</title>
+  <meta name="description" content="게임 기획 포트폴리오 웹사이트" />
+  <meta property="og:title" content="Game Design Portfolio" />
+  <meta property="og:description" content="플레이 경험을 구조로 설계하는 게임 기획 포트폴리오" />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="styles.css?v=20260816-copy-1" />
+</head>
+<body>
+  <div class="site-gradient-bg" aria-hidden="true"></div>
+  <div class="background-noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#main" aria-label="메인으로 이동">
+      <span class="brand-mark"><img class="brand-icon" src="assets/icons/main_icon.svg" alt="" /></span>
+    </a>
+    <nav class="top-nav" aria-label="상단 메뉴">
+      <a class="active" href="#main" data-target="main" aria-current="page">홈</a>
+      <a href="#profile" data-target="profile">프로필</a>
+      <a href="#portfolio" data-target="portfolio">포트폴리오</a>
+      <a href="#played-games" data-target="played-games">플레이한 게임들</a>
+      <a href="#contact" data-target="contact">문의</a>
+    </nav>
+  </header>
+
+  <div class="easter-egg-character" aria-hidden="true">
+    <img class="easter-egg-character-image" src="assets/images/butter_angry.png" alt="" />
+  </div>
+
+  <main class="snap-container" tabindex="0">
+    <section class="snap-section hero-section" id="main" data-section="main">
+      <div class="hero-custom-bg" aria-hidden="true"></div>
+      <div class="section-inner hero-grid">
+        <div class="hero-copy">
+          <h1 aria-label="안녕하세요 기획자 안현욱입니다"><span class="hero-typing-line">안녕하세요</span><br /><span class="hero-typing-line">기획자 안현욱입니다</span></h1>
+          <p class="hero-description">저의 플레이 경험과 고민을 담아낸 게임 기획 포트폴리오 웹사이트입니다</p>
+          <div class="hero-actions">
+            <a class="button secondary" href="#profile" data-profile-entry="info">프로필 보기</a>
+            <a class="button secondary" href="#portfolio">포트폴리오 보기</a>
+          </div>
+        </div>
+      </div>
+      <p class="hero-copyright">본 포트폴리오의 기획 문서, 이미지 및 콘텐츠의 무단 복제·재배포를 금지합니다.</p>
+    </section>
+
+    <section class="snap-section profile-section" id="profile" data-section="profile">
+      <div class="section-inner profile-inner">
+        <div class="profile-tab-layout">
+          <div class="profile-side">
+            <div class="profile-heading profile-nav-heading">
+              <h2>프로필</h2>
+            </div>
+            <aside class="profile-area-b" aria-label="프로필 정보 선택">
+              <div class="profile-tab-list" role="tablist" aria-label="프로필 정보 선택">
+                <button class="profile-tab-button active" type="button" data-profile-tab="info" aria-selected="true">지원자 정보</button>
+                <button class="profile-tab-button" type="button" data-profile-tab="strength" aria-selected="false">핵심 역량</button>
+                <button class="profile-tab-button" type="button" data-profile-tab="career" aria-selected="false">경력과 학력</button>
+                <button class="profile-tab-button" type="button" data-profile-tab="essay" aria-selected="false">자기소개서</button>
+              </div>
+            </aside>
+          </div>
+
+          <article class="profile-area-a" aria-live="polite">
+            <div class="profile-a-panel active" data-profile-panel="info">
+              <div class="profile-info-layout">
+                <figure class="profile-info-photo">
+                  <img src="assets/images/profile.webp" alt="안현욱 프로필 사진" />
+                </figure>
+                <div class="profile-info-content">
+                  <header class="profile-info-heading">
+                    <h3>안현욱</h3>
+                    <p>재미에 도달하는 과정을 설계하는 기획자</p>
+                  </header>
+
+                  <div class="profile-info-strengths" aria-label="핵심 역량">
+                    <article class="profile-info-strength-item">
+                      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="9" cy="20" r="4"></circle><circle cx="31" cy="9" r="4"></circle><circle cx="31" cy="31" r="4"></circle><path d="M13 18l14-7M13 22l14 7"></path></svg>
+                      <h4>콘텐츠 설계</h4>
+                      <p>유저 경험을 고려한<br />콘텐츠 설계 능력</p>
+                    </article>
+                    <article class="profile-info-strength-item">
+                      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="13"></circle><path d="M20 7v26M7 20h26M11 12c5 4 13 4 18 0M11 28c5-4 13-4 18 0"></path></svg>
+                      <h4>세계관 설정</h4>
+                      <p>탄탄한 세계관 및<br />캐릭터 설정 능력</p>
+                    </article>
+                    <article class="profile-info-strength-item">
+                      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M11 6h13l6 6v22H11z"></path><path d="M24 6v7h6M16 20h9M16 25h9M16 30h6"></path></svg>
+                      <h4>기획 문서화</h4>
+                      <p>직관적인 구조의<br />기획 문서화 능력</p>
+                    </article>
+                  </div>
+
+                  <div class="profile-info-keywords" aria-label="지원 분야 키워드">
+                    <span>#게임기획</span><span>#콘텐츠</span><span>#퀘스트</span><span>#컨셉</span>
+                    <span>#서브컬쳐</span><span>#레벨디자인</span><span>#PC게임</span><span>#모바일게임</span>
+                  </div>
+
+                  <a class="button secondary contact-button profile-info-resume" href="assets/pdfs/resume.pdf" download>
+                    <span class="button-icon external-icon resume-icon" aria-hidden="true"></span>
+                    <span>이력서 다운로드</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-a-panel" data-profile-panel="strength">
+              <div class="profile-panel-title-row">
+                <h3>핵심 역량</h3>
+                <div class="profile-filter-row" role="group" aria-label="핵심 역량 분류">
+                  <button class="profile-filter-button active" type="button" data-skill-filter="program" aria-pressed="true">프로그램</button>
+                  <button class="profile-filter-button" type="button" data-skill-filter="ai" aria-pressed="false">AI</button>
+                  <button class="profile-filter-button" type="button" data-skill-filter="other" aria-pressed="false">어학 및 기타</button>
+                </div>
+              </div>
+              <div class="profile-skill-grid" id="profileSkillGrid" aria-label="프로그램 활용 역량"></div>
+            </div>
+
+            <div class="profile-a-panel" data-profile-panel="career">
+              <div class="profile-panel-title-row">
+                <h3>경력과 학력</h3>
+                <div class="profile-filter-row" role="group" aria-label="경력과 학력 분류">
+                  <button class="profile-filter-button active" type="button" data-timeline-filter="career" aria-pressed="true">경력</button>
+                  <button class="profile-filter-button" type="button" data-timeline-filter="education" aria-pressed="false">학력</button>
+                </div>
+              </div>
+              <div class="career-timeline-frame">
+                <div class="career-timeline-viewport" id="careerTimelineViewport" aria-label="경력 타임라인. 상하로 스크롤하여 전체 경력을 확인할 수 있습니다." tabindex="0">
+                  <div class="career-timeline-canvas" id="careerTimeline"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-a-panel" data-profile-panel="essay">
+              <h3>자기소개서</h3>
+              <div class="essay-list">
+                <section class="essay-item">
+                  <h4><span class="essay-index">1</span><span>저를 소개합니다</span></h4>
+                  <p class="essay-summary">누구나 쉽게 즐길 수 있는 재미의 본질</p>
+                  <div class="essay-body">
+                    <p>게임이라는 퍼즐 위에 사람들의 몰입의 조각을 채워 넣는 기획자입니다.</p>
+                    <p>어릴 적, 아버지 친구분이 설치해주셨던 ‘고인돌(Prehistorik)’이라는 게임을 처음 접한 기억이 아직도 생생합니다. 털이 수북한 원시인을 조작해 공룡을 쓰러뜨리는 단순한 횡스크롤 게임이었는데, 첫 스테이지도 넘기지 못했지만 수십 번 반복할 만큼 푹 빠졌던 기억이 납니다. 이후 컴퓨터에서 게임이 삭제되었을 때, 플로피 디스크에 ‘고인돌’이라고 볼펜으로 적어 넣으면 다시 실행할 수 있으리라 믿었던 그 마음은, 아마도 제가 처음으로 ‘재미’라는 감정을 자각한 순간이었는지도 모릅니다.</p>
+                    <p>저는 한 명의 게이머로서 장르 불문 다양한 게임을 즐기기도 했지만, 한편으로 게임을 직접 만들고 싶다는 마음에 아날로그 보드게임 제작을 시작했습니다. 디자인 역량을 살려 총 9개의 보드 게임을 직접 설계했으며, 테스터들로부터는 늘 ‘재미있지만 어렵다’는 평가를 받았습니다. 이런 피드백을 수용하여 제작한 「양치기의 꿈」은 초심자도 쉽게 접근할 수 있도록 간단한 룰에 더해, 보드 게임에서는 흔히 볼 수 없는 세계관과 배경 스토리를 정립하는 데 집중하였습니다. 그 결과 네이버 카페 주최 2017년 보드 게임 기획 경연에서 우승을 거머쥘 수 있었습니다. 이는 저를 모바일 게임 개발의 길로 이끌었고 ‘게임은 누구나 쉽게 즐길 수 있어야 한다’는 저만의 철학을 갖게 된 계기가 되었습니다.</p>
+                  </div>
+                </section>
+                <section class="essay-item">
+                  <h4><span class="essay-index">2</span><span>특별한 경험</span></h4>
+                  <p class="essay-summary">다국적 팀워크에서 배운 소통의 기술</p>
+                  <div class="essay-body">
+                    <p>일본어 학교에 유학을 갔을 당시 다양한 문화권의 학생들을 이끌어 군무 콘테스트에서 우승한 경험이 있습니다.</p>
+                    <p>일본 신주쿠에 위치한 KCP지구시민일본어학교에서 약 8개월 간 어학 연수를 했던 적이 있습니다. 그곳에서 1년에 한 번 각 반이 군무를 기획해 무대에 오르는 페스티벌이 열렸는데, 당시 학교 생활에 적극적이었던 저는 선생님의 추천으로 공연을 기획하고 준비하는 준비위원을 맡게 되었습니다.</p>
+                    <p>반에는 10대 후반에서 20대 초반의 미국인·중국인 학생들이 대부분이었고, 각자의 개성이 강한 이들과 협업하는 것은 결코 쉽지 않았습니다. 몇 안 되는 군무 연습일의 참여율은 저조했고, 방과 후 협조적인 학생 몇몇과 밤을 새우며 준비를 하는 날들이 이어졌습니다. 결국 참여율을 높이기 위해 무작정 제 계획을 밀어붙이기보다 다양한 문화권에서 모인 모두가 쉽게 즐기고 따라할 수 있는 춤을 만드는 데 집중하게 되었습니다. 쉬는 시간 학생들을 한 명 한 명 찾아가 참여해주기를 부탁했고, 방과 후 식사하고 대화하며 신뢰와 공감대를 쌓는 데 많은 시간을 투자했습니다.</p>
+                    <p>그 결과 3주 뒤 열린 콘테스트에서 저희 반은 1등을 차지했습니다. 군무가 끝나고 학생들이 상기된 표정으로 관객석을 바라보던 그 순간은 지금도 잊을 수 없습니다. 이 경험은 다양한 의견이 모인 조직 안에서 어떻게 조율하고 리드할지를 고민하게 해주었고, 이후 협업 상황에서도 다양한 관점을 존중하며 팀을 조율하는 데 큰 도움이 되었습니다.</p>
+                  </div>
+                </section>
+                <section class="essay-item">
+                  <h4><span class="essay-index">3</span><span>저의 장점</span></h4>
+                  <p class="essay-summary">시행착오를 줄여주는 신중한 계획</p>
+                  <div class="essay-body">
+                    <p>일을 시작하기 전 충분한 계획을 세우는 스타일로, 실행 단계에서의 시행착오를 줄이는 데 강점이 있습니다.</p>
+                    <p>예전에 참여한 ‘팬텀’ 게임 프로젝트에서 휴대폰의 잠금 화면을 열듯이 몬스터가 제시하는 패턴을 따라 그려 공격하는 전투 시스템을 설계한 적이 있습니다. 다만 단순히 따라 그리는 방식에서 오는 재미에는 한계가 있었기 때문에, 약간의 퍼즐 요소를 가미하여 간단하지만 전략적으로 구성된 다양한 패턴을 구상하였습니다.</p>
+                    <p>단순히 레벨 디자인으로 끝나는 것이 아닌, 중간 중간 ‘반복적인 재미를 가져다 줄 수 있는가?’, ‘지나치게 피로를 유발하지는 않는가?’ 라는 의문을 바탕으로 스스로 기획을 폐기하고 다듬는 과정을 거쳤습니다. 하나의 의문을 출발점 삼아 마인드맵으로 논리를 확장하며 시행착오를 줄여나갔고, 그렇게 프로토타입을 보완한 끝에 사내 테스트에서 직원 80% 이상으로부터 긍정적인 반응을 이끌어낼 수 있었습니다.</p>
+                    <p>이 경험을 통해 저는 신중함이 기획 방향을 명확히 다듬는 데 유용하다는 확신을 갖게 되었습니다. 물론 무한정 고민만 할 수는 없기에 ‘계획과 실행의 균형’을 스스로 점검하며 조절하고 있습니다.</p>
+                  </div>
+                </section>
+                <section class="essay-item">
+                  <h4><span class="essay-index">4</span><span>저의 단점</span></h4>
+                  <p class="essay-summary">소통을 통해 상대방을 설득해나가는 과정</p>
+                  <div class="essay-body">
+                    <p>저는 스스로 확신을 가지는 방향에 대해 다소 고집이 강한 면이 있습니다.</p>
+                    <p>저는 문득 떠오른 영감과 직관에 따라 일을 추진하거나 의사를 결정하는 경우가 많습니다. 이는 창의성에 제약을 두지 않고, 이성적인 판단보다 빠른 결정을 내릴 수 있다는 장점이 있습니다. 그러나 동시에 객관성과 논리적 근거가 부족해 주변을 설득하는 데에 어려움을 겪기도 합니다.</p>
+                    <p>게임 기획자로서 일할 당시, 저는 제 아이디어를 실현하는 데만 몰두한 나머지 주변의 조언을 귀담아듣지 못한 적이 있습니다. 결국 제 아이디어의 완성도가 아무리 높아도 혼자서는 빛날 수 없고, 팀원들을 설득하는 과정이 나아가 유저들을 설득하는 첫걸음이라는 것을 깨달았습니다. 옳고 그름 이전에 팀원 간의 화합과 분위기를 살필 줄 아는 것도 기획자의 중요한 역량임을 알게 되었습니다.</p>
+                    <p>현재의 저는 “어떻게 하면 상대방이 더 쉽게 이해할 수 있을까”를 가장 중요하게 고민합니다. 업무의 원활한 진행을 위해 제 ‘반짝임’을 포기하기보다는, 그것을 쉽고 간결한 언어로 설명하는 데 집중합니다. 단순히 글로 표현하는 것이 아닌 관련 이미지나 자료를 하나라도 더 덧붙이는 것, 이런 작은 배려가 결국 더 큰 협업의 시너지로 돌아온다는 것을 믿습니다.</p>
+                  </div>
+                </section>
+                <section class="essay-item">
+                  <h4><span class="essay-index">5</span><span>입사 후 포부</span></h4>
+                  <p class="essay-summary">언제든 함께 하고 싶은 기획자</p>
+                  <div class="essay-body">
+                    <p>먼저 서로의 성장을 독려하는 사람이 되겠습니다. 다양한 사람이 한 데 모인 곳에서는 필연적으로 여러 의견이 부딪히곤 합니다. 저는 화합을 우선하지만, 때로는 직설적이고 쓴소리도 할 줄 아는 것이 보다 건강한 회사 문화를 만드는 데 도움이 되리라 믿습니다. 사사로운 개인 감정을 접어두고, 언제나 피드백을 두려워하지 않는 자세로 임하겠습니다.</p>
+                    <p>또한 게임 기획자로서, 세계관 정립을 통한 콘텐츠 설계로 게임의 내실을 높이는 데 기여하겠습니다. 맵에 배치된 건물, NPC의 복장 하나에도 의미를 담고, 시스템적인 장치에조차 세계관의 디테일을 스며들게 하는 것. 마치 그곳을 살아가는 듯한, 유저와 개발자가 함께 즐길 수 있는 세계를 만드는 데 도움이 되고 싶습니다.</p>
+                    <p>마지막으로 상대의 입장을 헤아리는 사람이 되겠습니다. 사회생활을 하며 유독 기억에 남는 사람들은 주고받는 것에 계산을 섞지 않는 이타적인 사람이었습니다. 필요하지 않아도 먼저 챙기는 행동, 문서 하나에도 상대방의 편의를 고민하는 자세가 결국 팀의 신뢰를 만든다고 믿습니다.</p>
+                    <p>완성형의 인재는 없다고 생각합니다. 늘 배우는 자세로 임하고, 팀과 함께 성장하는 기획자 안현욱이 되겠습니다.</p>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="snap-section portfolio-section" id="portfolio" data-section="portfolio">
+      <div class="section-inner portfolio-inner">
+        <div class="portfolio-copy">
+          <div>
+            <h2>포트폴리오</h2>
+            <p>중앙 또는 좌우 뷰어를 선택해 내용을 바로 확인할 수 있으며, 오른쪽 상단의 아이콘을 통해 전체 포트폴리오 목록을 확인할 수 있습니다.</p>
+          </div>
+          <button class="portfolio-menu-button" type="button" aria-label="포트폴리오 메뉴" aria-expanded="false" aria-controls="portfolioIndexMenu">
+            <span></span><span></span><span></span>
+          </button>
+          <nav class="portfolio-index-menu" id="portfolioIndexMenu" aria-label="포트폴리오 전체 목록" aria-hidden="true"></nav>
+        </div>
+
+        <div class="portfolio-carousel" id="portfolioCarousel" aria-label="포트폴리오 PDF 선택">
+          <div class="portfolio-carousel-track" id="portfolioCarouselTrack">
+            <section class="viewer-panel" id="portfolioViewerPanel" aria-label="PDF 미리보기 영역">
+              <div class="viewer-toolbar">
+                <strong id="viewerTitle">문서를 선택해 주세요</strong>
+                <div class="viewer-actions">
+                  <div class="page-controls" id="pageControls" aria-label="PDF 페이지 이동">
+                    <button class="page-button" id="prevPage" type="button" aria-label="이전 페이지" disabled>&lt;</button>
+                    <div class="page-jump">
+                      <button class="page-status" id="pageStatus" type="button" aria-label="전체 페이지 목록 열기" aria-haspopup="listbox" aria-expanded="false" disabled>0 / 0</button>
+                      <div class="page-number-menu" id="pageNumberMenu" role="listbox" aria-label="PDF 페이지 선택" hidden>
+                        <div class="page-number-list" id="pageNumberList"></div>
+                      </div>
+                    </div>
+                    <button class="page-button" id="nextPage" type="button" aria-label="다음 페이지" disabled>&gt;</button>
+                  </div>
+                  <a class="button small secondary disabled" id="openPdf" href="#" target="_blank" rel="noreferrer">새 창으로 열기</a>
+                </div>
+              </div>
+              <div class="pdf-stage">
+                <canvas id="pdfCanvas" aria-label="PDF 페이지 미리보기"></canvas>
+                <div class="viewer-guide" id="viewerGuide">
+                  <strong></strong>
+                  <p>목록에서 포트폴리오 문서를 선택하면 이 영역에 표시됩니다.</p>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="portfolio-swipe-hint" id="portfolioSwipeHint" aria-hidden="true">
+            <span class="portfolio-swipe-arrow is-left"></span>
+            <span class="portfolio-swipe-arrow is-right"></span>
+          </div>
+        </div>
+
+        <div class="portfolio-legacy-ui" aria-hidden="true">
+          <div class="filter-row" aria-label="포트폴리오 필터">
+            <button class="filter-button active" type="button" data-filter="all">전체</button>
+            <button class="filter-button" type="button" data-filter="system">시스템</button>
+            <button class="filter-button" type="button" data-filter="content">콘텐츠</button>
+            <button class="filter-button" type="button" data-filter="boardgame">보드게임</button>
+          </div>
+          <div class="document-scroll-shell" id="documentScrollShell">
+            <div class="document-list" id="documentList" aria-label="포트폴리오 문서 목록"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="snap-section played-games-section" id="played-games" data-section="played-games">
+      <div class="section-inner games-inner">
+        <div class="games-copy">
+          <div>
+            <h2>플레이한 게임들</h2>
+            <p>다양한 플랫폼과 장르에서 직접 플레이하며 관찰한 경험을 정리한 게임 목록입니다.</p>
+          </div>
+          <div class="game-filter-row" aria-label="플레이 게임 필터">
+            <button class="game-filter-button active" type="button" data-game-filter="all">전체</button>
+            <button class="game-filter-button" type="button" data-game-filter="pc">PC</button>
+            <button class="game-filter-button" type="button" data-game-filter="mobile">모바일</button>
+            <button class="game-filter-button" type="button" data-game-filter="console">콘솔</button>
+          </div>
+        </div>
+
+        <div class="games-scroll-shell" id="gamesScrollShell">
+          <div class="game-motion-layer" id="gameMotionLayer" aria-hidden="true"></div>
+          <div class="game-card-grid" id="gameCardGrid" aria-label="플레이한 게임 목록"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="snap-section contact-section" id="contact" data-section="contact">
+      <div class="section-inner contact-inner">
+        <div>
+          <h2>함께 만들고 싶은 게임이 있다면</h2>
+          <p>포트폴리오 검토, 면접 제안, 협업 문의를 기다리고 있습니다.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button secondary contact-button" href="assets/pdfs/resume.pdf" download>
+            <span class="button-icon external-icon resume-icon" aria-hidden="true"></span>
+            <span>이력서 다운로드</span>
+          </a>
+          <a class="button secondary contact-button" href="https://drive.google.com/drive/u/1/folders/1S-DOo6VpiVGG3TqlwDUW7rGgwhGA1Xm9" target="_blank" rel="noreferrer">
+            <span class="button-icon external-icon drive-icon" aria-hidden="true"></span>
+            <span>더 많은 포트폴리오</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="next-arrow global-next-arrow" id="globalNextArrow" href="#profile" aria-label="다음 섹션으로 이동">
+    <span></span>
+  </a>
+
+  <script src="script.js?v=20260816-copy-1"></script>
+</body>
+</html>
