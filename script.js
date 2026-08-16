@@ -821,6 +821,14 @@ let gameAutoScrollPausedUntil = 0;
 let gameAutoScrollWriteUntil = 0;
 let hasGameAutoScrollStarted = false;
 let lastGameScrollRatio = 0;
+const GAME_IMAGE_INITIAL_PRELOAD_COUNT = 12;
+const GAME_IMAGE_PRELOAD_AHEAD_COUNT = 8;
+const GAME_IMAGE_PRELOAD_BATCH_SIZE = 4;
+const gameImagePreloadQueue = [];
+const gameImagePreloadQueued = new WeakSet();
+let gameImagePreloadIdleHandle = 0;
+let gameImageLookaheadRaf = 0;
+let gameImagePreloadRangeKey = '';
 let activeSkillFilter = 'program';
 let hasShownCodexSkillNote = false;
 let easterEggClickCount = 0;
@@ -1957,8 +1965,98 @@ function startGameAutoScroll() {
   gameAutoScrollRaf = requestAnimationFrame(stepGameAutoScroll);
 }
 
+function scheduleGameImagePreloadBatch() {
+  if (gameImagePreloadIdleHandle || !gameImagePreloadQueue.length) return;
+
+  const runBatch = (deadline) => {
+    gameImagePreloadIdleHandle = 0;
+    let processedCount = 0;
+
+    while (
+      gameImagePreloadQueue.length
+      && processedCount < GAME_IMAGE_PRELOAD_BATCH_SIZE
+      && (deadline.didTimeout || deadline.timeRemaining() > 4)
+    ) {
+      const image = gameImagePreloadQueue.shift();
+      if (!image?.isConnected) {
+        if (image) gameImagePreloadQueued.delete(image);
+        continue;
+      }
+
+      image.loading = 'eager';
+      image.fetchPriority = 'low';
+      image.decode?.().catch(() => {});
+      processedCount += 1;
+    }
+
+    if (gameImagePreloadQueue.length) scheduleGameImagePreloadBatch();
+  };
+
+  if ('requestIdleCallback' in window) {
+    gameImagePreloadIdleHandle = window.requestIdleCallback(runBatch, { timeout: 500 });
+  } else {
+    gameImagePreloadIdleHandle = window.setTimeout(() => {
+      runBatch({ didTimeout: true, timeRemaining: () => 0 });
+    }, 24);
+  }
+}
+
+function queueGameCardImages(cards) {
+  if (navigator.connection?.saveData) return;
+
+  cards.forEach((card) => {
+    const image = card?.querySelector('.game-card-image img');
+    if (!image || image.complete || gameImagePreloadQueued.has(image)) return;
+    gameImagePreloadQueued.add(image);
+    gameImagePreloadQueue.push(image);
+  });
+  scheduleGameImagePreloadBatch();
+}
+
+function preloadGameImagesNearViewport({ initial = false } = {}) {
+  if (!gameCardGrid || navigator.connection?.saveData) return;
+
+  const cards = [...gameCardGrid.querySelectorAll('.game-card')];
+  if (!cards.length) return;
+
+  if (initial) {
+    queueGameCardImages(cards.slice(0, GAME_IMAGE_INITIAL_PRELOAD_COUNT));
+  }
+
+  const viewportTop = gameCardGrid.scrollTop;
+  const viewportBottom = viewportTop + gameCardGrid.clientHeight;
+  let firstVisibleIndex = cards.findIndex((card) => card.offsetTop + card.offsetHeight >= viewportTop);
+  if (firstVisibleIndex < 0) firstVisibleIndex = cards.length - 1;
+
+  let lastVisibleIndex = firstVisibleIndex;
+  for (let index = firstVisibleIndex; index < cards.length; index += 1) {
+    if (cards[index].offsetTop > viewportBottom) break;
+    lastVisibleIndex = index;
+  }
+
+  const preloadEndIndex = Math.min(
+    cards.length,
+    lastVisibleIndex + 1 + GAME_IMAGE_PRELOAD_AHEAD_COUNT
+  );
+  const rangeKey = `${currentGameFilter}:${firstVisibleIndex}:${preloadEndIndex}`;
+  if (rangeKey === gameImagePreloadRangeKey) return;
+
+  gameImagePreloadRangeKey = rangeKey;
+  queueGameCardImages(cards.slice(firstVisibleIndex, preloadEndIndex));
+}
+
+function scheduleGameImageLookahead() {
+  if (!hasGameAutoScrollStarted || gameImageLookaheadRaf) return;
+  gameImageLookaheadRaf = requestAnimationFrame(() => {
+    gameImageLookaheadRaf = 0;
+    preloadGameImagesNearViewport();
+  });
+}
+
 function setPlayedGamesInView(isInView) {
-  if (!isInView || hasGameAutoScrollStarted) return;
+  if (!isInView) return;
+  preloadGameImagesNearViewport({ initial: !hasGameAutoScrollStarted });
+  if (hasGameAutoScrollStarted) return;
   hasGameAutoScrollStarted = true;
   gameAutoScrollLastTime = 0;
   gameAutoScrollPosition = gameCardGrid?.scrollTop || 0;
@@ -2004,6 +2102,8 @@ function renderGameCards(filter = 'all', options = {}) {
   updateGameMasonryLayout();
   restoreGameScrollRatio(scrollRatio);
   updateGameGridState();
+  gameImagePreloadRangeKey = '';
+  scheduleGameImageLookahead();
 }
 
 function playGameIntro() {
@@ -2226,6 +2326,8 @@ async function animateGameFilter(filter = 'all') {
 
   gameMotionLayer?.replaceChildren();
   updateGameGridState();
+  gameImagePreloadRangeKey = '';
+  scheduleGameImageLookahead();
 }
 
 function setPageNumberMenuOpen(isOpen) {
@@ -2828,6 +2930,7 @@ if (gameCardGrid) {
     }
     captureGameScrollRatio();
     updateGameGridState();
+    scheduleGameImageLookahead();
   }, { passive: true });
 
   ['wheel', 'pointerdown', 'touchstart'].forEach((eventName) => {
